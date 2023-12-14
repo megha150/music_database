@@ -28,7 +28,7 @@ JOIN genre ON track.genre_id = genre.genre_id
 WHERE genre.name = 'Rock'
 GROUP BY artist.name
 ORDER BY track_count DESC
-LIMIT 10
+LIMIT 10;
 
 
 
@@ -42,7 +42,7 @@ FROM track
 WHERE milliseconds > (
 	SELECT AVG(milliseconds) AS average
 	FROM track)
-ORDER BY milliseconds DESC
+ORDER BY milliseconds DESC;
 
 
 
@@ -56,10 +56,10 @@ JOIN customer c ON c.customer_id = i.customer_id
 JOIN invoice_line il ON il.invoice_id = i.invoice_id
 JOIN track t ON t.track_id = il.track_id
 JOIN album alb ON alb.album_id = t.album_id
-join artist on artist.artist_id = alb.artist_id
+JOIN artist ON artist.artist_id = alb.artist_id
 
 GROUP BY 1,2,3
-order by amount_spent desc
+ORDER BY amount_spent DESC;
 
 
   
